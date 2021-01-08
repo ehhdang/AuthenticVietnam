@@ -1,0 +1,18 @@
+<div *ngIf="authService.user$ | async as user" class="user-card">
+  <div class="user-info">
+    <div>
+      <img [src]="user.picture" class="rounded-circle">
+    </div>
+    <div class="user-name">
+      {{ user.name }}
+    </div>
+  </div>
+  <div class="account-actions">
+    <app-reset-password-button></app-reset-password-button>
+    <app-delete-account-button></app-delete-account-button>
+  </div>
+</div>
+
+<div class="row" *ngIf="profileJson">
+  <pre class="col-12 text-light bg-dark p-4">{{ profileJson }}</pre>
+</div>

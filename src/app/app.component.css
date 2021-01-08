@@ -1,0 +1,12 @@
+.loading{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.loading-message {
+    font-size: 120%;
+    color: #356859;
+    padding: 1.5em;
+}

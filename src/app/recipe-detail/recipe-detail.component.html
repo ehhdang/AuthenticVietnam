@@ -1,0 +1,67 @@
+<div *ngIf="recipe" class="container">
+    <div class='row'>
+        <div class="col-12 col-md-6 recipe-summary">
+            <div class="recipe-name">{{ recipe.name }}</div>
+            <div class="recipe-description">{{ recipe.description }}</div>
+            <div class="action-items">
+                <div class="col-4">
+                    <button mat-button (click)="goBack()">
+                        <fa-icon [icon]="backArrow"></fa-icon>
+                        <span> Back</span>
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button mat-button (click)="toggleFavorite()">
+                        <fa-icon *ngIf="!isFavorite" [icon]="rHeart"></fa-icon>
+                        <fa-icon *ngIf="isFavorite" [icon]="sHeart"></fa-icon>
+                        <span> Like</span>
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button mat-button>
+                        <fa-icon [icon]="comment"></fa-icon>
+                        <span> Comments</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <mat-tab-group dynamicHeight>
+                <mat-tab label="Ingredients" class="ingredient-box">
+                    <div *ngFor="let ingredient of recipe.ingredients" class="ingredient-item">
+                     <!-- (click)="onSelectIngredient(ingredient)"> -->
+                        <div class="ingredient-icon">
+                            <fa-icon *ngIf="!checklist.get(ingredient.id)" [icon]="circle"></fa-icon>
+                            <fa-icon *ngIf="checklist.get(ingredient.id)" [icon]="checkedCircle"></fa-icon>
+                        </div>
+                        <div class="ingredient-name"> 
+                            <button class="btn" data-bs-container="body"
+                              data-bs-toggle="popover" data-bs-placement="right" title="Recommendations"
+                              attr.data-bs-content="{{ingredient.recommended}}" data-bs-trigger="hover">
+                                {{ ingredient.name }} 
+                            </button>
+                        </div>
+                        <div class="ingredient-amount"> {{ ingredient.amount }} </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Directions">
+                    <div class="direction-box">
+                        <div class="direction-detail">
+                            <div class='direction-title'>{{ recipe.directions[selectedStep].title }}</div>
+                            <div *ngFor="let explanation of recipe.directions[selectedStep].details"
+                                class="direction-explantion">
+                                {{ explanation }}
+                            </div>
+                        </div>
+                        <div class="direction-index">
+                            <button *ngFor="let direction of recipe.directions; index as i" (click)="onSelectStep(direction)"
+                                class="btn index" [class.index-active]="i == selectedStep">
+                                {{ i + 1 }}
+                            </button>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>

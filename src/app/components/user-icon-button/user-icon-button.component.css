@@ -1,0 +1,20 @@
+img {
+    height: 2em;
+    opacity: 0.7;
+}
+img:hover {
+    opacity: 1;
+}
+.user-icon {
+    border-radius: 50%;
+    background-color: #B9E4C9;
+    opacity: 0.7;
+    margin: 0 1em;
+}
+.user-icon:hover {
+    opacity: 1;
+}
+.user-initial {
+    color: #FD5523;
+    font-weight: 500;
+}
