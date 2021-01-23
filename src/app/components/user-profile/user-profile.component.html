@@ -3,16 +3,14 @@
     <div>
       <img [src]="user.picture" class="rounded-circle">
     </div>
-    <div class="user-name">
-      {{ user.name }}
-    </div>
+    <div class="user-name" >
+      {{ user.given_name }} {{ user.family_name}}
+    </div>  
   </div>
   <div class="account-actions">
-    <app-reset-password-button></app-reset-password-button>
-    <app-delete-account-button></app-delete-account-button>
+    <app-show-favorite-button (showFavorite)="showFavorite($event)" [favorite]="isFavorite"></app-show-favorite-button>
+    <app-edit-account-button (showAccount)="showAccount($event)" [account]="isAccount"></app-edit-account-button>
+    <app-delete-account-button [userId]="user.sub"></app-delete-account-button>
   </div>
 </div>
 
-<div class="row" *ngIf="profileJson">
-  <pre class="col-12 text-light bg-dark p-4">{{ profileJson }}</pre>
-</div>

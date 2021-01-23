@@ -1,0 +1,36 @@
+<div class="recipe-summary" *ngIf="recipe">
+    <div class="recipe-name">{{ recipe.name }}</div>
+    <div class="recipe-description">{{ recipe.description }}</div>
+    <div class="action-items">
+        <div class="col-4">
+            <button mat-button (click)="goBack()">
+                <fa-icon [icon]="backArrow"></fa-icon>
+                <span> Back</span>
+            </button>
+        </div>
+        <div class="col-4">
+            <div *ngIf="user; else disabledLike">
+                <button *ngIf="!isFavorite" mat-button (click)="addFavorite()">
+                    <fa-icon [icon]="rHeart"></fa-icon>
+                    <span> Like</span>
+                </button>
+                <button *ngIf="isFavorite" mat-button (click)="deleteFavorite()">
+                    <fa-icon [icon]="sHeart"></fa-icon>
+                    <span> Like</span>
+                </button>
+            </div>
+            <ng-template #disabledLike>
+                <button mat-button disabled="true">
+                    <fa-icon [icon]="rHeart"></fa-icon>
+                    <span> Like</span>
+                </button>
+            </ng-template>
+        </div>
+        <div class="col-4">
+            <button mat-button>
+                <fa-icon [icon]="comment"></fa-icon>
+                <span> Comments</span>
+            </button>
+        </div>
+    </div>
+</div>

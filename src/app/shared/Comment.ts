@@ -1,9 +1,9 @@
-import { User } from "./User";
-
 export class Comment {
     _id: String;
     rating: Number;
-    author: User;
+    username: String;
+    userId: String;
+    userPicture: String;
     comment: String;
     date: Date;
 }

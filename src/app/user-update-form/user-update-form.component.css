@@ -1,0 +1,35 @@
+.user {
+    margin: 0;
+}
+.user .heading {
+    color: #FD5523;
+    font-family: "Lekton";
+    border-bottom: 2px solid #B9E4C9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.user-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.user-form > mat-form-field {
+    flex: 0 0 5em;
+    margin: 0.5em;
+}
+.user-form > mat-form-field:nth-of-type(3) {
+    flex: 1 0 0;
+}
+.user-form > mat-form-field:nth-of-type(4) {
+    flex: 2 0 0;
+}
+#submit-button {
+    background-color: #37966F;
+    color: #FFFBE6;
+    margin: 0.5em;
+}
+#submit-button:hover {
+    background-color: #356859;
+}

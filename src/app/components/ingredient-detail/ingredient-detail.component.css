@@ -1,0 +1,31 @@
+.ingredient-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.ingredient-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.ingredient-icon {
+    width: 5%;
+}
+.ingredient-name {
+    width: 75%;
+}
+.ingredient-amount {
+    width: 20%;
+    text-align: right;
+}
+.ingredient-tooltip {
+    font-family: "Lekton";
+    background: #37966F;
+    color: #B9E4C9;
+    font-size: 0.7em; 
+}

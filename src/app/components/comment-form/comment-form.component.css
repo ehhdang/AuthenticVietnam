@@ -1,0 +1,41 @@
+.blank-comment {
+    display: flex;
+    flex-direction: row;
+}
+.blank-comment > img {
+    height: 4em;
+    flex: 0 0 auto;
+}
+.blank-comment > mat-form-field {
+    flex: 1 0 0;
+    margin-left: 1em;
+}
+
+.authorized-comment {
+    display: flex;
+    flex-direction: row;
+}
+.authorized-comment img {
+    height: 4em;
+    flex: 0 0 auto;
+    border-radius: 50%;
+}
+.authorized-comment form {
+    flex: 1 0 0;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+mat-form-field {
+    flex: 0 0 auto;
+    margin: 0 0.5em;
+}
+mat-form-field:nth-of-type(2) {
+    flex: 1 0 200px;
+}
+.btn.form-submit {
+    border: 1px solid #37966F;
+    margin-top: 1em;
+}

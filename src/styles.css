@@ -68,25 +68,13 @@ a:hover{
     outline: 0;
 }
 
-/* Customized style for bootstrap card component */
-.card {
+/* Customized style for ng material card component */
+mat-card.recipe-card {
     border: 0px;
     background-color: #FFFBE6;
 }
 .recipe-name {
     color: #FD5523;
-}
-
-/* Customized style for bootstrap popover component */
-.popover {
-    background-color: #FFFBE6;
-}
-.popover-header {
-    color: #FD5523;
-    background-color: #FFFBE6;
-}
-.popover-body {
-    color: #37966F;
 }
 
 /* Customized style for nav items*/

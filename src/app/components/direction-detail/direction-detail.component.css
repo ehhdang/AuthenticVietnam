@@ -1,0 +1,44 @@
+.direction-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.direction-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+}
+.direction-title {
+    color: #356859;
+    font-size: 150%;
+    font-weight: 600;
+    padding: 2%;
+}
+.direction-explantion {
+    padding: 2%;
+}
+.direction-index {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 10%;
+}
+.index {
+    height: 32px;
+    width: 32px;
+    text-align: center;
+    margin: 5%;
+    padding: 5%;
+}
+.index-active {
+    border: 1px solid #37966F;
+    font-size: 110%;
+}
+.index.btn:hover {
+    background-color: #37966F;
+    color: #FFFBE6;
+}

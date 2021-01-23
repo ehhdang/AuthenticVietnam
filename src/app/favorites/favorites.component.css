@@ -1,7 +1,12 @@
 .favorites {
-    margin-left: 5em;
+    margin: 0;
 }
 .favorites .heading {
     color: #FD5523;
-    font-size: 1.5em;
+    font-family: "Lekton";
+    border-bottom: 2px solid #B9E4C9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }

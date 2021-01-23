@@ -14,7 +14,7 @@ export const RECIPES: Recipe[] = [
         "amount": "2 servings",
         "recommended": "Three Ladies brand is the most similar to 'bún tươi', after cooked.",
         "type": "Dry Ingredients"
-        // ck
+        //ck
       },
       {
         "id": 1,
@@ -38,7 +38,7 @@ export const RECIPES: Recipe[] = [
         "amount": "1 oz",
         "type": "Fresh Vegetables",
         "recommended": "Asian grocery stores are the most likely to sell this herb."
-        // ck
+        //ck
       },
       {
         "id": 4,
@@ -46,7 +46,7 @@ export const RECIPES: Recipe[] = [
         "amount": "3 eggs",
         "type": "Poultry",
         "recommended": "Go ahead add use more eggs if you like."
-        // ck 
+        // ck
       },
       {
         "id": 5,
@@ -54,7 +54,7 @@ export const RECIPES: Recipe[] = [
         "amount": "8 oz",
         "type": "Poultry",
         "recommended": "This item can be found at an Asian grocery store."
-        // ck
+        //ck
       },
       {
         "id": 6,
@@ -62,7 +62,7 @@ export const RECIPES: Recipe[] = [
         "amount": "2 lb",
         "type": "Poultry",
         "recommended": "I prefer my pork belly to contain as little fat as possible because pork belly is fatty by nature.",
-        // ck
+        //ck
       },
       {
         "id": 7,
@@ -70,7 +70,7 @@ export const RECIPES: Recipe[] = [
         "amount": "12 oz",
         "recommended": "Extra thin rice paper is the best because it's not too chewy.",
         "type": "Dry Ingredients"
-        // ck
+        //ck
       },
       {
         "id": 8,
@@ -78,7 +78,7 @@ export const RECIPES: Recipe[] = [
         "amount": "1 cup",
         "recommended": " ",
         "type": "Sauce & Seasoning"
-        // ck
+        //ck
       },
       {
         "id": 9,
@@ -86,7 +86,7 @@ export const RECIPES: Recipe[] = [
         "amount": "1/2 cup",
         "recommended": "I prefer Apple cider vinegar, but any other vinegar is fine",
         "type": "Sauce & Seasoning",
-        // ck
+        //ck
       },
       {
         "id": 10,
@@ -94,7 +94,7 @@ export const RECIPES: Recipe[] = [
         "amount": "1 cup",
         "type": "Sauce & Seasoning",
         "recommended": "I use granulated sugar. Be careful with brown sugar because it has a different flavor",
-        // ck
+        //
       },
       {
         "id": 11,
@@ -102,7 +102,7 @@ export const RECIPES: Recipe[] = [
         "amount": "3 cloves",
         "type": "Sauce & Seasoning",
         "recommended": "If you like spicy, use more garlic and add chopped Thai chilly peppers.",
-        // ck
+        //
       }
     ],
     "directions": [
@@ -117,7 +117,7 @@ export const RECIPES: Recipe[] = [
           "To check if the pork belly is fully cooked, run a knife through middle. If the meat is still red, simmer for another 10 - 15 minutes.",
           "Set the pork belly aside to cool."
         ]
-        // ck
+        //ck
       },
       {
         "id": 1,
@@ -128,7 +128,7 @@ export const RECIPES: Recipe[] = [
           "Flip the eggs to make both sides golden brown.",
           "Repeat until you fry all the egg mixture. Set the omelettes aside to cool."
         ]
-        // ck
+        //ck
       },
       {
         "id": 2,
@@ -138,6 +138,7 @@ export const RECIPES: Recipe[] = [
           "Drain and rinse the noodles through running water to remove all the rice powder residues.",
           "Set aside to cool"
         ]
+        // ck
       },
       {
         "id": 3,
@@ -146,7 +147,7 @@ export const RECIPES: Recipe[] = [
           "Keep the leaves of the Vietnamese herbs. Separate the leaves of the lettuce head",
           "Wash the vegetables and let them dry"
         ]
-        // ck
+        //ck 
       },
       {
         "id": 4,
@@ -156,7 +157,7 @@ export const RECIPES: Recipe[] = [
           "In a medium bowl, dissolve sugar in 5 cups of lukewarm water.",
           "Add fish oi, vinegar, and garlic mince. Mix well."
         ]
-        // ck
+        //ck
       },
       {
         "id": 5,
@@ -166,6 +167,7 @@ export const RECIPES: Recipe[] = [
           "Slice the meat loaf and omelettes into threads of 5 inches long.",
           "Put the pork belly, meat loaf, and omelettes on serving plates."
         ]
+        //ck
       },
       {
         "id": 6,
@@ -177,6 +179,7 @@ export const RECIPES: Recipe[] = [
           "The rice paper should become sticky at this point, which will help keep everything together once you finish rolling.",
           "Dip the spring roll in the sauce and enjoy!"
         ]
+        //
       }
     ]
 },
@@ -192,6 +195,7 @@ export const RECIPES: Recipe[] = [
         "amount": "2 servings",
         "recommended": "Three Ladies brand is the most similar to 'bún tươi', after cooked.",
         "type": "Dry Ingredients"
+        // ck 
       },
       {
         "id": 1,
@@ -199,6 +203,7 @@ export const RECIPES: Recipe[] = [
         "amount": "1 heads",
         "recommended": "I prefer Boston lettuce because the leaves are not crunchy.",
         "type": "Fresh Vegetables",
+        // ck
       },
       {
         "id": 2,
@@ -206,6 +211,7 @@ export const RECIPES: Recipe[] = [
         "amount": "1 oz",
         "type": "Fresh Vegetables",
         "recommended": "Asian grocery stores are the most likely to sell this herb."
+        //ck
       },
       {
         "id": 3,
@@ -213,6 +219,7 @@ export const RECIPES: Recipe[] = [
         "amount": "1 oz",
         "type": "Fresh Vegetables",
         "recommended": "Asian grocery stores are the most likely to sell this herb."
+        // ck 
       },
       {
         "id": 4,
@@ -220,6 +227,7 @@ export const RECIPES: Recipe[] = [
         "amount": "1 lb",
         "recommended": "I prefer Angus beef sirloin steak because it is very soft",
         "type": "Poultry",
+        //ck
       },
       {
         "id": 5,
@@ -227,6 +235,7 @@ export const RECIPES: Recipe[] = [
         "amount": "1 EA",
         "recommended": "Sweet onions are the best.",
         "type": "Fresh Vegetables",
+        // ck
       },
       {
         "id": 6,
@@ -234,6 +243,7 @@ export const RECIPES: Recipe[] = [
         "amount": "4 oz",
         "type": "Toppings",
         "recommended": "You can buy packaged roasted peanuts at the grocery store. Make sure they are unsalted."
+        //ck 
       },
       {
         "id": 7,
@@ -241,6 +251,7 @@ export const RECIPES: Recipe[] = [
         "amount": "4 oz",
         "type": "Toppings",
         "recommended": "Fried shallot (a.k.a. fried red onions) can be found at an Asian grocery store.",
+        //ck 
       },
       {
         "id": 8,
@@ -248,6 +259,7 @@ export const RECIPES: Recipe[] = [
         "amount": "1 cup",
         "recommended": "The best fish sauce brands, in my opinion, are Phu Quoc, Viet Huong, and Red Boat.",
         "type": "Sauce & Seasoning"
+        //ck 
       },
       {
         "id": 9,
@@ -255,6 +267,7 @@ export const RECIPES: Recipe[] = [
         "amount": "1/2 cup",
         "recommended": "I prefer Apple cider vinegar, but any other vinegar is fine",
         "type": "Sauce & Seasoning",
+        // ck 
       },
       {
         "id": 10,
@@ -262,6 +275,7 @@ export const RECIPES: Recipe[] = [
         "amount": "1 cup",
         "type": "Sauce & Seasoning",
         "recommended": "I use granulated sugar. Be careful with brown sugar because it has a different flavor",
+        // ck 
       },
       {
         "id": 11,
@@ -269,6 +283,7 @@ export const RECIPES: Recipe[] = [
         "amount": "3 cloves",
         "type": "Sauce & Seasoning",
         "recommended": "If you like spicy, use more garlic and add chopped Thai chilly peppers."
+        // ck
       }
     ],
     "directions": [
@@ -280,6 +295,7 @@ export const RECIPES: Recipe[] = [
           "Drain and rinse the noodles through running water to remove all the rice powder residues.",
           "Set aside to cool."
         ]
+        // ck
       },
       {
         "id": 1,
@@ -289,6 +305,7 @@ export const RECIPES: Recipe[] = [
           "Take peanuts out of the ovens and let them cool.",
           "Remove the skin and crush the peanuts into small pieces."
         ]
+        // ck 
       },
       {
         "id": 2,
@@ -297,6 +314,7 @@ export const RECIPES: Recipe[] = [
           "Pick out the leaves of the Vietnamese herbs. Break lettuce heads.",
           "Wash the vegetable and drain off water."
         ]
+        // ck 
       },
       {
         "id": 3,
@@ -309,6 +327,7 @@ export const RECIPES: Recipe[] = [
           "Stir the onions in the same pan. When the onions are half cooked, add in the beef and stir for 2 minutes.",
           "Put the stirred beef in a bowl."
         ]
+        // ck 
       },
       {
         "id": 4,
@@ -318,6 +337,7 @@ export const RECIPES: Recipe[] = [
           "In a medium bowl, dissolve sugar in 5 cups of lukewarm water.",
           "Add fish oi, vinegar, and garlic mince. Mix well."
         ]
+        // ck 
       },
       {
         "id": 5,

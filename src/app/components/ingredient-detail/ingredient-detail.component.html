@@ -1,0 +1,16 @@
+<div class="ingredient-box" *ngIf="ingredients">
+    <div *ngFor="let ingredient of ingredients; index as i" class="ingredient-item"
+      (click)="onSelectIngredient(i)">
+        <div class="ingredient-icon">
+            <fa-icon *ngIf="!checklist[i]" [icon]="circle"></fa-icon>
+            <fa-icon *ngIf="checklist[i]" [icon]="checkedCircle"></fa-icon>
+        </div>
+        <div class="ingredient-name"> 
+            <button class="btn" [matTooltip]="ingredient.recommended" 
+              matTooltipPosition="below" matTooltipClass="ingredient-tooltip">
+                {{ ingredient.name }} 
+            </button>
+        </div>
+        <div class="ingredient-amount"> {{ ingredient.amount }} </div>
+    </div>
+</div>

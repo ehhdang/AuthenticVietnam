@@ -1,0 +1,20 @@
+.dialog {
+    color: #356859;
+}
+.cancel-button {
+    margin: 0 0.5em;
+    border: 1px solid #37966F;
+}
+.cancel-button:hover {
+    background-color: #37966F;
+    color: #FFFBE6;
+}
+.delete-button {
+    color: #FD5523;
+    margin: 0 0.5em;
+    border: 1px solid #FD5523;
+}
+.delete-button:hover {
+    background-color: #FD5523;
+    color: #FFFBE6;
+}

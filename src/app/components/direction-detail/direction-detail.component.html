@@ -1,0 +1,17 @@
+<div *ngIf="directions">
+    <div class="direction-box">
+        <div class="direction-detail">
+            <div class='direction-title'>{{ directions[selectedStep].title }}</div>
+            <div *ngFor="let explanation of directions[selectedStep].details"
+                class="direction-explantion">
+                {{ explanation }}
+            </div>
+        </div>
+        <div class="direction-index">
+            <button *ngFor="let direction of directions; index as i" (click)="onSelectStep(direction)"
+                class="btn index" [class.index-active]="i == selectedStep">
+                {{ i + 1 }}
+            </button>
+        </div>
+    </div>
+</div>

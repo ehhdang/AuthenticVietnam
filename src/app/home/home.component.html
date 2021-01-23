@@ -1,11 +1,13 @@
 <div class="container">
     <div class="row my-4">
-        <a *ngFor="let recipe of recipes" class="col-12 col-md-4 card" 
+        <a *ngFor="let recipe of recipes" class="col-12 col-md-4" 
             routerLink="/recipeDetail/{{recipe._id}}">
-            <img [src]="recipe.image" class="card-img-top">
-            <div class="card-body">
-                <span class="card-title recipe-name">{{ recipe.name }}</span>
-            </div>
+            <mat-card class="recipe-card mat-elevation-z0">
+                <img mat-card-image [src]="recipe.image">
+                <div mat-card-content>
+                    <span class="card-title recipe-name">{{ recipe.name }}</span>
+                </div>
+            </mat-card>
         </a>
     </div>
 </div>

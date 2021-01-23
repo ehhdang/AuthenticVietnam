@@ -1,0 +1,30 @@
+<div *ngIf="user; else disabledForm">
+    <div class="authorized-comment">
+        <img [src]="user.picture" alt="user image">
+        <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" color="primary">
+            <mat-form-field appearance="outline">
+                <mat-label>Rating</mat-label>
+                <mat-select formControlName="rating">
+                    <mat-option *ngFor="let number of [1,2,3,4,5]" [value]="number">
+                        {{ number }} stars
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Add a public comment...</mat-label>
+                <textarea matInput formControlName="comment"></textarea>
+            </mat-form-field>
+            <button class="btn form-submit" type="submit" [disabled]="commentForm.invalid">Submit</button>
+        </form>
+    </div>
+</div>
+
+<ng-template #disabledForm>
+    <div class="blank-comment">
+        <img src="../../../assets/images/useravatar.png" alt="user avatar">
+        <mat-form-field appearance="outline">
+            <mat-label>Add a public comment...</mat-label>
+            <textarea matInput (click)="openAuthRequestDialog()" cdkTextareaAutosize></textarea>
+        </mat-form-field>
+    </div>
+</ng-template>

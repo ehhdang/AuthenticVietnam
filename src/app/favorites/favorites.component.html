@@ -1,14 +1,19 @@
-<!-- <div class="favorites">
-    <div class="row heading">
-        Favorites
+<div class="favorites">
+    <div class="heading">
+        <h3>Favorites</h3>
+        <button class="btn" (click)="deleteAllFavorites()">
+            <fa-icon [icon]="trashIcon"></fa-icon>
+        </button>
     </div>
     <div class="row my-4">
-        <a *ngFor="let favorite of favorites" class="col-12 col-md-4 card" 
-            routerLink="/recipeDetail/{{favorite.id}}">
-            <img [src]="favorite.image" class="card-img-top">
-            <div class="card-body">
-                <span class="card-title recipe-name">{{ favorite.name }}</span>
-            </div>
+        <a *ngFor="let favorite of favorites" class="col-12 col-md-4" 
+            routerLink="/recipeDetail/{{favorite._id}}">
+            <mat-card class="recipe-card mat-elevation-z0">
+                <img mat-card-image [src]="favorite.image">
+                <div mat-card-content>
+                    <span class="card-title recipe-name">{{ favorite.name }}</span>
+                </div>
+            </mat-card>
         </a>
     </div>
-</div> -->
+</div>

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from "@auth0/auth0-angular";
-import { faAppleAlt, faPepperHot, faCarrot, faLemon, faSeedling } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-user-profile',
@@ -9,16 +8,37 @@ import { faAppleAlt, faPepperHot, faCarrot, faLemon, faSeedling } from "@fortawe
 })
 export class UserProfileComponent implements OnInit {
 
-  profileJson: string = null;
+  isFavorite: boolean = true;
+  isAccount: boolean = false;
+  @Output() userChoice = new EventEmitter<Object>();
+
 
   constructor(
     public authService: AuthService,
   ) { }
 
   ngOnInit(): void {
-    this.authService.user$.subscribe(profile => {
-      this.profileJson = JSON.stringify(profile, null, 2);
+    this.userChoice.emit({
+      showFavorite: this.isFavorite,
+      showAccount: this.isAccount
     })
   }
 
+  showFavorite(show: boolean): void {
+    this.isFavorite = show;
+    this.isAccount = (!show);
+    this.userChoice.emit({
+      showFavorite: this.isFavorite,
+      showAccount: this.isAccount
+    })
+  }
+
+  showAccount(show: boolean): void {
+    this.isFavorite = (!show);
+    this.isAccount = show;
+    this.userChoice.emit({
+      showFavorite: this.isFavorite,
+      showAccount: this.isAccount
+    })
+  }
 }

@@ -1,0 +1,18 @@
+<div class="comments">
+    <div class="heading">
+        <fa-icon [icon]="commentIcon"></fa-icon>
+        <span> Comments</span>
+    </div>
+    <app-comment-form (newComment)="addComment($event)"></app-comment-form>
+    <div *ngFor="let comment of comments" class="comment-card">
+        <img matListAvatar [src]="comment.userPicture" alt="user image">
+        <div class="comment-details">
+            <div class="user">
+                <span class="name">{{ comment.username }}</span>
+                <span class="date">{{comment.date | date }}</span>
+            </div>
+            <div class="rating">{{ comment.rating }} stars</div>
+            <div class="comment">{{ comment.comment }}</div>
+        </div>
+    </div>
+</div>

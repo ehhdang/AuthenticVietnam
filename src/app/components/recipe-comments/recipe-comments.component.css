@@ -1,0 +1,52 @@
+.comments {
+    margin-top: 2em;
+}
+.heading {
+    color: #FD5523;
+    font-family: "Lekton";
+    border-bottom: 2px solid #B9E4C9;
+    margin: 2em 0;
+}
+.heading span {
+    font-size: 24px;
+}
+.heading fa-icon {
+    color: #FD5523;
+}
+.comment-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 1em 0;
+}
+.comment-card img {
+    height: 4em;
+    flex: 0 0 auto;
+    border-radius: 50%;
+}
+.comment-card .comment-details {
+    flex: 1 0 0;
+    margin-left: 1em;
+}
+.user {
+    margin: 0 0.5em;
+}
+.user .name {
+    font-weight: 600;
+    color: #356859;
+    margin-right: 0.5em;
+}
+.user .date {
+    font-size: 0.8em;
+    color: #356859;
+    opacity: 0.8;
+}
+.rating {
+    color: #FD5523;
+    font-family: "Lekton";
+    font-style: italic;
+    margin: 0 0.5em;
+}
+.comment {
+    margin: 0 0.5em;
+}

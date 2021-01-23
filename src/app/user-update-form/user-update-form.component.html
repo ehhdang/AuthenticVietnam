@@ -1,0 +1,37 @@
+<div class="user" *ngIf="user">
+    <div class="heading">
+        <h3>Basic Info</h3>
+        <button *ngIf="userProfile.disabled" class="btn" (click)="enableUpdate()">
+            <fa-icon [icon]="editIcon"></fa-icon>
+        </button>
+        <button *ngIf="userProfile.enabled" class="btn" (click)="cancel()">
+            <fa-icon [icon]="timesIcon"></fa-icon>
+        </button>
+    </div>
+    <div class="row my-4">
+        <form [formGroup]="userProfile" (ngSubmit)="onSubmit()">
+            <div class="user-form">
+                <mat-form-field appearance="outline">
+                    <mat-label>Given name</mat-label>
+                    <input matInput type="text" formControlName="given_name">
+                    <mat-error *ngIf="userProfile.get('given_name').errors">Given name is required</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Family name</mat-label>
+                    <input matInput type="text" formControlName="family_name">
+                    <mat-error *ngIf="userProfile.get('family_name').errors">Family name is required</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input matInput type="text" formControlName="username">
+                    <mat-error *ngIf="userProfile.get('username').errors">{{ getErrorMessage() }}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="text" [value]="user.email" disabled>
+                </mat-form-field>
+            </div>
+            <button type="submit" class="btn" id="submit-button" [disabled]="userProfile.disabled || userProfile.invalid">Submit</button>
+        </form>
+    </div>
+</div>
