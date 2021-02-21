@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/shared/Recipe';
 import { faChevronLeft, faList, faHeart as sfaHeart} from '@fortawesome/free-solid-svg-icons';
 import { faHeart as rfaHeart } from '@fortawesome/free-regular-svg-icons';
-import { AuthService } from "@auth0/auth0-angular";
+import { AuthService } from "../../services/auth.service";
 import { UsersService } from "../../services/users.service";
 import { User } from 'src/app/shared/User';
 import { Location } from '@angular/common';
@@ -32,18 +32,18 @@ export class RecipeInfoComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.user !== null) {
-      this.usersService.isFavorite(this.user.user_id, this.recipe._id)
+      this.usersService.isFavorite(this.user._id, this.recipe._id)
         .subscribe(answer => this.isFavorite = answer);
     }
   }
 
   addFavorite(): void {
-    this.usersService.addFavorite(this.user.user_id, { favorite: this.recipe._id })
+    this.usersService.addFavorite(this.user._id, { favorite: this.recipe._id })
       .subscribe(favorites => this.isFavorite = true);
   }
 
   deleteFavorite(): void {
-    this.usersService.deleteFavorite(this.user.user_id, this.recipe._id)
+    this.usersService.deleteFavorite(this.user._id, this.recipe._id)
       .subscribe(favorites => this.isFavorite = false);
   }
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "@auth0/auth0-angular";
+import { AuthService } from "../../services/auth.service";
+import { RegisterDialogComponent } from "../register-dialog/register-dialog.component";
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-signup-button',
@@ -10,14 +12,16 @@ export class SignupButtonComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
   }
 
   signupWithRedirect(): void {
-    this.authService.loginWithRedirect({
-      screen_hint: "signup",
+    this.dialog.open(RegisterDialogComponent, {
+      width: "500px",
+      height: "560px"
     })
   }
 

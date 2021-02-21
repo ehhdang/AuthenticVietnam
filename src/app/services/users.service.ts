@@ -9,19 +9,18 @@ import { environment as env } from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
-
 export class UsersService {
 
   constructor(
     private http: HttpClient,
   ) {}
   
-  getUser(authId: String): Observable<User> {
-    const url = `${env.dev.serverUrl}/users/${authId}`;
+  getUser(): Observable<User> {
+    const url = `${env.dev.serverUrl}/users/user`;
     return this.http.get<User>(url)
       .pipe(
-        catchError(this.handleError<User>(`getUser authId=${authId}`))
-      );
+        catchError(this.handleError<User>(`getUser`))
+      )
   }
 
   updateUser(authId: String, content: Object): Observable<User> {

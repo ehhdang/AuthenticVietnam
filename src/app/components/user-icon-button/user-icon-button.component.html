@@ -1,12 +1,5 @@
-<li *ngIf="authService.user$ | async as user" class="nav-item">
-    <a type= "button" class="nav-link" routerLink="/user-portal">
-        <img [src]="user.picture" class="rounded-circle">
+<li *ngIf="authService.isLoggedIn()" class="nav-item">
+    <a type= "button btn" class="nav-link user-icon" routerLink="/user-portal">
+       {{ initial }}
     </a>
 </li>
-<!-- <ng-template #defaultImage>
-    <li *ngIf="firstInitial" class="nav-item user-icon">
-        <a type= "button" class="nav-link user-initial" routerLink="/user-portal">
-            {{ firstInitial }}
-        </a>
-    </li>
-</ng-template> -->

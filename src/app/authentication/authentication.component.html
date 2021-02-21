@@ -1,6 +1,6 @@
 <div class="nav justify-content-end align-items-center">
-    <app-login-button *ngIf="(authService.isAuthenticated$ | async) === false"></app-login-button>
-    <app-signup-button *ngIf="(authService.isAuthenticated$ | async) === false"></app-signup-button>
-    <app-user-icon-button *ngIf="authService.isAuthenticated$ | async"></app-user-icon-button>
-    <app-logout-button *ngIf="authService.isAuthenticated$ | async"></app-logout-button>
+    <app-login-button *ngIf="authService.isLoggedOut()"></app-login-button>
+    <app-signup-button *ngIf="authService.isLoggedOut()"></app-signup-button>
+    <app-user-icon-button *ngIf="authService.isLoggedIn()"></app-user-icon-button>
+    <app-logout-button *ngIf="authService.isLoggedIn()"></app-logout-button>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "@auth0/auth0-angular";
+import { AuthService } from "../services/auth.service";
 import { User } from '../shared/User';
 import { UsersService } from "../services/users.service";
 
@@ -23,10 +23,8 @@ export class UserPortalComponent implements OnInit {
       showFavorite: true,
       showAccount: false
     };
-    this.auth.user$.subscribe(user => {
-      this.usersService.getUser(user.sub).subscribe(completeUser => {
-        this.user = completeUser;
-      })
+    this.usersService.getUser().subscribe(user => {
+      this.user = user;
     });
   }
 

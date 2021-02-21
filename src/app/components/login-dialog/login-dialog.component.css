@@ -1,0 +1,28 @@
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.brand .brand-name {
+    font-weight: 600;
+    color: #356859;
+    margin: 0.25em 0;
+}
+.brand .headline {
+    font-family: "Lekton";
+    margin: 0.25em 0;
+    color: #FD5523;
+}
+form {
+    margin: 0.5em;
+}
+.email-password-field {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0.25em;
+}
+.form-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

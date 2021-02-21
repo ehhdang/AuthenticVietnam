@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "@auth0/auth0-angular";
+import { AuthService } from "../../services/auth.service";
+import { UsersService } from "../../services/users.service";
 
 @Component({
   selector: 'app-user-icon-button',
@@ -8,10 +9,18 @@ import { AuthService } from "@auth0/auth0-angular";
 })
 export class UserIconButtonComponent implements OnInit {
 
+  initial: String;
+
   constructor(
     public authService: AuthService,
+    public users: UsersService
   ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.users.getUser()
+      .subscribe(user => {
+        this.initial = user.firstname.charAt(0).concat(user.lastname.charAt(0));
+      })
+  }
 
 }

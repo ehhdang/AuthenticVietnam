@@ -1,8 +1,8 @@
-import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { AuthService } from '@auth0/auth0-angular';
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { AuthService } from '../../services/auth.service';
 import { UsersService } from "../../services/users.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-delete-consent-dialog',
@@ -12,10 +12,11 @@ import { UsersService } from "../../services/users.service";
 export class DeleteConsentDialogComponent implements OnInit {
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: {userId: String},
+    @Inject(MAT_DIALOG_DATA) private data: {userId: String},
     private usersService: UsersService,
     public auth: AuthService,
-    @Inject(DOCUMENT) private doc: Document,
+    private dialogRef: MatDialogRef<DeleteConsentDialogComponent>,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -24,8 +25,9 @@ export class DeleteConsentDialogComponent implements OnInit {
   deleteAccount(): void {
     this.usersService.deleteUser(this.data.userId)
       .subscribe(response => {
-        console.log(response);
-        this.auth.logout({returnTo: this.doc.location.origin});
+        this.auth.logout();
+        this.dialogRef.close();
+        this.router.navigate(["/router"]);
       });
   }
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "@auth0/auth0-angular";
+import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
+import { AuthService } from "../../services/auth.service";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-login-button',
@@ -10,13 +12,17 @@ export class LoginButtonComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
   }
 
   loginWithRedirect(): void {
-    this.authService.loginWithRedirect();
+   this.dialog.open(LoginDialogComponent, {
+    width: "500px",
+    height: "400px"
+   })
   }
 
 }

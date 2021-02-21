@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../shared/Recipe';
 import { ActivatedRoute } from '@angular/router';
 import { RecipesService } from '../services/recipes.service';
-import { AuthService } from "@auth0/auth0-angular";
+import { AuthService } from "../services/auth.service";
 import { User } from '../shared/User';
 import { UsersService } from "../services/users.service";
 
@@ -25,9 +25,10 @@ export class RecipeDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRecipe();
-    this.auth.user$.subscribe(user => {
-      this.usersService.getUser(user.sub).subscribe(completeUser => {this.user = completeUser; console.log(this.user);});
-    });
+    this.usersService.getUser()
+      .subscribe(user => {
+        this.user = user;
+      });
   }
 
   getRecipe(): void {

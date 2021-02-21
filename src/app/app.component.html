@@ -1,11 +1,5 @@
-<div class="loading" *ngIf="authService.isLoading$ | async; else loaded">
-    <mat-spinner class="custom-mat-spinner" diameter="150"></mat-spinner>
-    <span class="loading-message">One Moment... Jasmine is loading</span>
-</div>
-<ng-template #loaded>
-    <app-header></app-header>
+<app-header></app-header>
 
-    <router-outlet></router-outlet>
-    
-    <app-footer></app-footer>
-</ng-template>
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>

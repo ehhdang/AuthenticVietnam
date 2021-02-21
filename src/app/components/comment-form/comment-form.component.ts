@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { AuthService } from "@auth0/auth0-angular";
+import { AuthService } from "../../services/auth.service";
 import { Comment } from "../../shared/Comment";
 import { CommentsService } from "../../services/comments.service";
 import { MatDialog } from "@angular/material/dialog";
@@ -36,18 +36,12 @@ export class CommentFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.auth.user$.subscribe(user => {
-      if (user) {
-        this.usersService.getUser(user.sub).subscribe(completeUser => {
-          this.user = completeUser;
-          console.log(this.user);
-          this.commentForm.patchValue({
-            username: this.user.username,
-            userId: this.user.user_id,
-            userPicture: this.user.picture,
-          });
-        });
-      };
+    this.usersService.getUser().subscribe(user => {
+      this.user = user;
+      this.commentForm.patchValue({
+        userId: this.user._id,
+        userPicture: this.user.picture,
+      });
     });
   }
 

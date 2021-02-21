@@ -4,10 +4,8 @@ import { NgModule } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { AuthModule } from "@auth0/auth0-angular";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { environment as env } from "../environments/environment";
-import { AuthHttpInterceptor } from "@auth0/auth0-angular";
 import { ReactiveFormsModule } from "@angular/forms";
 
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
@@ -49,6 +47,10 @@ import { RecipeCommentsComponent } from './components/recipe-comments/recipe-com
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
 import { AuthRequestDialogComponent } from "./components/auth-request-dialog/auth-request-dialog.component";
 import { CommentsService } from './services/comments.service';
+import { AuthInterceptor } from "./auth-interceptor";
+import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
+import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
+import { AuthService } from "./services/auth.service";
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import { CommentsService } from './services/comments.service';
     DeleteConsentDialogComponent,
     RecipeCommentsComponent,
     CommentFormComponent,
-    AuthRequestDialogComponent
+    AuthRequestDialogComponent,
+    RegisterDialogComponent,
+    LoginDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -95,51 +99,23 @@ import { CommentsService } from './services/comments.service';
     MatDialogModule,
     MatSelectModule,
     MatListModule,
-    // add and initialize AuthModule
-    AuthModule.forRoot({
-      ...env.auth,
-      httpInterceptor: {
-        allowedList: [
-          {
-            httpMethod: "POST",
-            uri: `${env.dev.serverUrl}/recipes`
-          },
-          {
-            httpMethod: "DELETE",
-            uri: `${env.dev.serverUrl}/recipes`
-          },
-          {
-            httpMethod: "PUT",
-            uri: `${env.dev.serverUrl}/recipes/recipe*`
-          },
-          {
-            httpMethod: "DELETE",
-            uri: `${env.dev.serverUrl}/recipes/recipe*`
-          },
-          {
-            httpMethod: "POST",
-            uri: `${env.dev.serverUrl}/recipes/recipe/comments*`
-          },
-          {
-            uri: `${env.dev.serverUrl}/users/*`
-          },
-        ]
-      }
-    }),
   ],
   providers: [
     RecipesService,
     UsersService,
     CommentsService,
+    AuthService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthHttpInterceptor,
+      useClass: AuthInterceptor,
       multi: true,
     }
   ],
   entryComponents: [
     DeleteConsentDialogComponent,
-    AuthRequestDialogComponent
+    AuthRequestDialogComponent,
+    RegisterDialogComponent,
+    LoginDialogComponent,
   ],
   bootstrap: [AppComponent]
 })

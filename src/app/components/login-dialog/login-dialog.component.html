@@ -1,0 +1,22 @@
+<div>
+    <div class="brand">
+        <h1 class="brand-name">Jasmine</h1>
+        <div class="headline">Log in Your Account</div>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <fieldset class="email-password-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+            </mat-form-field>
+        </fieldset>
+        <div class="form-buttons">
+            <button mat-stroked-button mat-dialog-close>Cancel</button>
+            <button mat-flat-button color="primary" type="submit" [disabled]="loginForm.invalid">Log In</button>
+        </div>
+    </form>
+</div>

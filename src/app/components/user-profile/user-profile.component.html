@@ -1,16 +1,16 @@
-<div *ngIf="authService.user$ | async as user" class="user-card">
+<div *ngIf="authService.isLoggedIn()" class="user-card">
   <div class="user-info">
     <div>
-      <img [src]="user.picture" class="rounded-circle">
+      <p class="rounded-circle">{{ userInitial }}</p>
     </div>
     <div class="user-name" >
-      {{ user.given_name }} {{ user.family_name}}
+      {{ user.firstname }} {{ user.lastname}}
     </div>  
   </div>
   <div class="account-actions">
     <app-show-favorite-button (showFavorite)="showFavorite($event)" [favorite]="isFavorite"></app-show-favorite-button>
     <app-edit-account-button (showAccount)="showAccount($event)" [account]="isAccount"></app-edit-account-button>
-    <app-delete-account-button [userId]="user.sub"></app-delete-account-button>
+    <app-delete-account-button [userId]="user._id"></app-delete-account-button>
   </div>
 </div>
 

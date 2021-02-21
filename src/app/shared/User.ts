@@ -1,8 +1,9 @@
+import { Recipe } from "./Recipe";
+
 export class User {
-    user_id: String;
+    _id: String;
     email: String;
-    username: String;
-    given_name: String;
-    family_name: String;
-    picture: String;
+    firstname: String;
+    lastname: String;
+    favorites: Recipe[];
 }

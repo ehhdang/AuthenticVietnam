@@ -3,7 +3,7 @@ import { faEdit } from "@fortawesome/free-regular-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FormBuilder, Validators } from "@angular/forms";
 import { UsersService } from "../services/users.service";
-import { AuthService } from "@auth0/auth0-angular";
+import { AuthService } from "../services/auth.service";
 import { User } from '../shared/User';
 
 @Component({
@@ -17,9 +17,9 @@ export class UserUpdateFormComponent implements OnInit {
   timesIcon = faTimes;
   @Input() user: User;
   userProfile = this.fb.group({
-    given_name: ["", Validators.required],
-    family_name: ["", Validators.required],
-    username: ["", [Validators.required, Validators.pattern(/^[a-zA-Z0-9\_\+\-\.\!\#\$\'\^\`\~\@]+$/), Validators.maxLength(15)]]
+    firstname: ["", [Validators.required, Validators.min(1), Validators.max(15)] ],
+    lastname: ["", [Validators.required, Validators.min(1), Validators.max(15)] ],
+    email: ["", [Validators.required, Validators.min(1), Validators.max(15)] ]
   });
 
   constructor(
@@ -30,9 +30,8 @@ export class UserUpdateFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.userProfile.patchValue({
-      given_name: this.user.given_name,
-      family_name: this.user.family_name,
-      username: this.user.username,
+      firstname: this.user.firstname,
+      lastname: this.user.lastname,
     });
     this.userProfile.disable();
   }
@@ -40,11 +39,11 @@ export class UserUpdateFormComponent implements OnInit {
   onSubmit(): void {
     const formUpdate = this.userProfile.value;
     this.userProfile.patchValue({
-      given_name: formUpdate.given_name,
-      family_name: formUpdate.family_name,
-      username: formUpdate.username
+      firstname: formUpdate.firstname,
+      lastname: formUpdate.lastname,
+      email: formUpdate.email
     });
-    this.usersService.updateUser(this.user.user_id, formUpdate)
+    this.usersService.updateUser(this.user._id, formUpdate)
       .subscribe(user => {
         this.userProfile.disable();
         window.location.reload();
@@ -57,21 +56,19 @@ export class UserUpdateFormComponent implements OnInit {
 
   cancel(): void {
     this.userProfile.patchValue({
-      given_name: this.user.given_name,
-      family_name: this.user.family_name,
-      username: this.user.username
+      firstname: this.user.firstname,
+      lastname: this.user.lastname,
     });
     this.userProfile.disable();
   }
 
   getErrorMessage(): String {
     var errorMessage: String = "";
-    if (this.userProfile.get('username').hasError("required") || this.userProfile.get('username').hasError("maxlength")) {
-      errorMessage = "username must be between 1 and 15 characters";
-      console.log("errors in length requirement");
+    if (this.userProfile.get('firstname').hasError("required") || this.userProfile.get('firstname').hasError("maxlength")) {
+      errorMessage = "firstname must be between 1 and 15 characters";
     }
-    if (this.userProfile.get('username').hasError("pattern")) {
-      errorMessage = "Username can only contain alphanumeric characters and these characters: _ + - . ! # $ ' ^ ` ~ @";
+    if (this.userProfile.get('lastname').hasError("required") || this.userProfile.get('lastname').hasError("maxlength")) {
+      errorMessage = "lastname must be between 1 and 15 characters";
     }
     return errorMessage;
   }

@@ -1,0 +1,36 @@
+<div>
+    <div class="brand">
+        <h1 class="brand-name">Jasmine</h1>
+        <div class="headline">Create Your Account</div>
+    </div>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <fieldset class="name-field">
+            <mat-form-field appearance="outline">
+                <mat-label>First name</mat-label>
+                <input matInput type="text" formControlName="firstname">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Last name</mat-label>
+                <input matInput type="text" formControlName="lastname">
+            </mat-form-field>
+        </fieldset>
+        <fieldset class="email-password-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="password" formControlName="confirmedPassword">
+            </mat-form-field>
+        </fieldset>
+        <div class="form-buttons">
+            <button mat-stroked-button mat-dialog-close>Cancel</button>
+            <button mat-flat-button color="primary" type="submit" [disabled]="registerForm.invalid">Register</button>
+        </div>
+    </form>
+</div>

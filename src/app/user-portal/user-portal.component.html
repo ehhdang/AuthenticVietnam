@@ -1,5 +1,5 @@
 <div class="container user-portal" *ngIf="user">
     <app-user-profile [user]="user" class="user-profile" (userChoice)="showChoice($event)"></app-user-profile>
-    <app-favorites *ngIf="action.showFavorite" [userId]="user.user_id" class="user-favorites"></app-favorites>
+    <app-favorites *ngIf="action.showFavorite" [userId]="user._id" class="user-favorites"></app-favorites>
     <app-user-update-form *ngIf="action.showAccount" [user]="user" class="account-update"></app-user-update-form>
 </div>
