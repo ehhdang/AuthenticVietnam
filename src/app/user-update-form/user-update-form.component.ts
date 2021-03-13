@@ -43,7 +43,7 @@ export class UserUpdateFormComponent implements OnInit {
       lastname: formUpdate.lastname,
       email: formUpdate.email
     });
-    this.usersService.updateUser(this.user._id, formUpdate)
+    this.usersService.updateUser(formUpdate)
       .subscribe(user => {
         this.userProfile.disable();
         window.location.reload();
@@ -58,6 +58,7 @@ export class UserUpdateFormComponent implements OnInit {
     this.userProfile.patchValue({
       firstname: this.user.firstname,
       lastname: this.user.lastname,
+      email: this.user.email
     });
     this.userProfile.disable();
   }
@@ -65,10 +66,10 @@ export class UserUpdateFormComponent implements OnInit {
   getErrorMessage(): String {
     var errorMessage: String = "";
     if (this.userProfile.get('firstname').hasError("required") || this.userProfile.get('firstname').hasError("maxlength")) {
-      errorMessage = "firstname must be between 1 and 15 characters";
+      errorMessage = "First name must be between 1 and 15 characters";
     }
     if (this.userProfile.get('lastname').hasError("required") || this.userProfile.get('lastname').hasError("maxlength")) {
-      errorMessage = "lastname must be between 1 and 15 characters";
+      errorMessage = "Last name must be between 1 and 15 characters";
     }
     return errorMessage;
   }

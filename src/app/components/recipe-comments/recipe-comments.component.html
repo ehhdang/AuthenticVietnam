@@ -5,14 +5,19 @@
     </div>
     <app-comment-form (newComment)="addComment($event)"></app-comment-form>
     <div *ngFor="let comment of comments" class="comment-card">
-        <img matListAvatar [src]="comment.userPicture" alt="user image">
+        <div class="user-picture">
+            <div>{{ comment.author.firstname.charAt(0) }}{{ comment.author.lastname.charAt(0) }}</div>
+          </div>
         <div class="comment-details">
             <div class="user">
-                <span class="name">{{ comment.username }}</span>
-                <span class="date">{{comment.date | date }}</span>
+                <span class="name">{{ comment.author.firstname }} {{ comment.author.lastname }}</span>
+                <span class="date">{{ comment.date | date }}</span>
             </div>
             <div class="rating">{{ comment.rating }} stars</div>
             <div class="comment">{{ comment.comment }}</div>
         </div>
+        <button *ngIf="isAuthorizedToDelete(comment)" class="btn">
+            <fa-icon class="trash-icon fa-lg" [icon]="trashIcon" (click)="deleteComment(comment._id)"></fa-icon>
+        </button>
     </div>
 </div>

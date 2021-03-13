@@ -26,3 +26,11 @@ form {
     flex-direction: row;
     justify-content: space-evenly;
 }
+.signup-hyperlink {
+    margin: 2em 1em;
+    text-decoration: underline;
+    color: #356859;
+}
+.signup-hyperlink a:hover {
+    cursor: pointer;
+}

@@ -1,4 +1,4 @@
-<div *ngIf="recipe && user" class="container">
+<div *ngIf="recipe" class="container">
     <div class='row'>
         <div class="col-12 col-md-6">
             <app-recipe-info [recipe]="recipe" [user]="user"></app-recipe-info>
@@ -15,6 +15,6 @@
         </div>
     </div>
     <div class="row my-3">
-        <app-recipe-comments [recipeId]="recipe._id"></app-recipe-comments>
+        <app-recipe-comments [recipeId]="recipe._id" [user]="user"></app-recipe-comments>
     </div>
 </div>

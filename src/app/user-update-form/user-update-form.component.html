@@ -26,8 +26,8 @@
                     <input matInput type="text" [value]="user.email" disabled>
                 </mat-form-field>
             </div>
-            <button class="button" (click)="cancel()">Cancel</button>
-            <button type="submit" class="btn" id="submit-button" [disabled]="userProfile.disabled || userProfile.invalid">Submit</button>
+            <button class="btn" id="cancel-button" (click)="cancel()" [disabled]="userProfile.disabled">Cancel</button>
+            <button type="submit" class="btn" id="submit-button" [disabled]="userProfile.disabled">Submit</button>
         </form>
     </div>
 </div>

@@ -44,7 +44,7 @@ export class AuthService {
     localStorage.removeItem("token");
     localStorage.removeItem("expiresAt");
     const url = `${env.dev.serverUrl}/users/logout`;
-    this.http.get(url);
+    this.http.post(url, {});
   }
 
   public isLoggedIn(): boolean {

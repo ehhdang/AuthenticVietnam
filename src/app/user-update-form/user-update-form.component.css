@@ -33,3 +33,10 @@
 #submit-button:hover {
     background-color: #356859;
 }
+#cancel-button {
+    background-color: #FFFBE6;
+    margin: 0.5em;
+}
+#cancel-button:hover {
+    background-color: #d2ceba;
+}

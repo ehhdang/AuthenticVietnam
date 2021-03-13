@@ -5,6 +5,7 @@ import { catchError } from "rxjs/operators";
 import { User } from "../shared/User";
 import { Recipe } from "../shared/Recipe";
 import { environment as env } from "../../environments/environment";
+import { AuthService } from "./auth.service";
 
 @Injectable({
   providedIn: 'root'
@@ -13,69 +14,66 @@ export class UsersService {
 
   constructor(
     private http: HttpClient,
+    private auth: AuthService,
   ) {}
   
   getUser(): Observable<User> {
-    const url = `${env.dev.serverUrl}/users/user`;
-    return this.http.get<User>(url)
-      .pipe(
-        catchError(this.handleError<User>(`getUser`))
-      )
+    if (this.auth.isLoggedOut()){
+      return of(null);
+    } else {
+      const url = `${env.dev.serverUrl}/users/user`;
+      return this.http.get<User>(url)
+        .pipe(
+          catchError(this.handleError<User>(`getUser`))
+        )
+    }
   }
 
-  updateUser(authId: String, content: Object): Observable<User> {
-    const url = `${env.dev.serverUrl}/users/${authId}`;
-    return this.http.patch<User>(url, content)
+  updateUser(user: Object): Observable<User> {
+    const url = `${env.dev.serverUrl}/users/user`;
+    return this.http.patch<User>(url, { user: user })
       .pipe(
-        catchError(this.handleError<User>(`updateUser authId=${authId}`))
+        catchError(this.handleError<User>(`updateUser`))
       );
   }
 
-  deleteUser(authId: String): Observable<User> {
-    const url = `${env.dev.serverUrl}/users/${authId}`;
+  deleteUser(): Observable<User> {
+    const url = `${env.dev.serverUrl}/users/user`;
     return this.http.delete<User>(url)
       .pipe(
-        catchError(this.handleError<User>(`deleteUser authId=${authId}`))
+        catchError(this.handleError<User>(`deleteUser`))
       );
   }
 
-  getFavorites(authId: String): Observable<Recipe[]> {
-    const url = `${env.dev.serverUrl}/users/${authId}/favorites`;
+  getFavorites(): Observable<Recipe[]> {
+    const url = `${env.dev.serverUrl}/users/user/favorites`;
     return this.http.get<Recipe[]>(url)
       .pipe(
-        catchError(this.handleError<Recipe[]>(`getFavorites authId=${authId}`))
+        catchError(this.handleError<Recipe[]>(`getFavorites`))
       );
   }
 
-  deleteFavorites(authId: String): Observable<Recipe[]> {
-    const url = `${env.dev.serverUrl}/users/${authId}/favorites`;
+  deleteFavorites(): Observable<Recipe[]> {
+    const url = `${env.dev.serverUrl}/users/user/favorites`;
     return this.http.delete<Recipe[]>(url)
       .pipe(
-        catchError(this.handleError<Recipe[]>(`deleteFavorites authId=${authId}`))
+        catchError(this.handleError<Recipe[]>(`deleteFavorites`))
       );
   }
 
-  addFavorite(authId: String, content: Object): Observable<Recipe[]> {
-    const url = `${env.dev.serverUrl}/users/${authId}/favorites`;
-    return this.http.patch<Recipe[]>(url, content)
+  addFavorite(_id: String): Observable<Recipe[]> {
+    const url = `${env.dev.serverUrl}/users/user/favorites/add`;
+    return this.http.patch<Recipe[]>(url, { recipeId: _id })
       .pipe(
-        catchError(this.handleError<Recipe[]>(`deleteFavorite authId=${authId}`))
+        catchError(this.handleError<Recipe[]>(`deleteFavorite`))
       );
   }
 
-  deleteFavorite(authId: String, favoriteId: String): Observable<Recipe[]> {
-    const url = `${env.dev.serverUrl}/users/${authId}/favorites/${favoriteId}`;
-    return this.http.delete<Recipe[]>(url)
+  deleteFavorite(_id: String): Observable<Recipe[]> {
+    const url = `${env.dev.serverUrl}/users/user/favorites/remove`;
+    return this.http.patch<Recipe[]>(url, { recipeId: _id })
       .pipe(
-        catchError(this.handleError<Recipe[]>(`deleteFavorite authId=${authId} favoriteId=${favoriteId}`))
-      );
-  }
-
-  isFavorite(authId: String, favoriteId: String): Observable<Boolean> {
-    const url = `${env.dev.serverUrl}/users/${authId}/favorites/isFavorite?recipeId=${favoriteId}`;
-    return this.http.get<Boolean>(url)
-      .pipe(
-        catchError(this.handleError<Boolean>(`isFavorite authId=${authId} favoriteId=${favoriteId}`))
+        catchError(this.handleError<Recipe[]>(`deleteFavorite`))
       );
   }
 

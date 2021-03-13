@@ -23,11 +23,11 @@ export class DeleteConsentDialogComponent implements OnInit {
   }
 
   deleteAccount(): void {
-    this.usersService.deleteUser(this.data.userId)
+    this.usersService.deleteUser()
       .subscribe(response => {
         this.auth.logout();
         this.dialogRef.close();
-        this.router.navigate(["/router"]);
+        this.router.navigate(["/home"]);
       });
   }
 

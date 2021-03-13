@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../shared/Recipe';
 import { ActivatedRoute } from '@angular/router';
 import { RecipesService } from '../services/recipes.service';
-import { AuthService } from "../services/auth.service";
 import { User } from '../shared/User';
 import { UsersService } from "../services/users.service";
 
@@ -19,7 +18,6 @@ export class RecipeDetailComponent implements OnInit {
   constructor(
     private recipesService: RecipesService,
     private route: ActivatedRoute,
-    private auth: AuthService,
     private usersService: UsersService,
   ) { }
 
@@ -34,7 +32,7 @@ export class RecipeDetailComponent implements OnInit {
   getRecipe(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.recipesService.getRecipe(id)
-      .subscribe(recipe => { this.recipe = recipe });
+      .subscribe(recipe => { this.recipe = recipe; });
   }
 
 }

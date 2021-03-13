@@ -1,7 +1,7 @@
 <div *ngIf="authService.isLoggedIn()" class="user-card">
   <div class="user-info">
-    <div>
-      <p class="rounded-circle">{{ userInitial }}</p>
+    <div class="user-picture">
+      <div>{{ userInitial }}</div>
     </div>
     <div class="user-name" >
       {{ user.firstname }} {{ user.lastname}}

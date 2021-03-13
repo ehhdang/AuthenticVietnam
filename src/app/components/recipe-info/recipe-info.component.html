@@ -3,34 +3,32 @@
     <div class="recipe-description">{{ recipe.description }}</div>
     <div class="action-items">
         <div class="col-4">
-            <button mat-button (click)="goBack()">
+            <button class="btn" (click)="goBack()">
                 <fa-icon [icon]="backArrow"></fa-icon>
                 <span> Back</span>
             </button>
         </div>
         <div class="col-4">
-            <div *ngIf="user; else disabledLike">
-                <button *ngIf="!isFavorite" mat-button (click)="addFavorite()">
+            <div *ngIf="user; else requestLogin">
+                <button *ngIf="!isFavorite" class="btn" (click)="addFavorite()">
                     <fa-icon [icon]="rHeart"></fa-icon>
                     <span> Like</span>
                 </button>
-                <button *ngIf="isFavorite" mat-button (click)="deleteFavorite()">
+                <button *ngIf="isFavorite" class="btn" (click)="deleteFavorite()">
                     <fa-icon [icon]="sHeart"></fa-icon>
                     <span> Like</span>
                 </button>
             </div>
-            <ng-template #disabledLike>
-                <button mat-button disabled="true">
+            <ng-template #requestLogin>
+                <button class="btn" (click)="openLogInDialog()">
                     <fa-icon [icon]="rHeart"></fa-icon>
                     <span> Like</span>
                 </button>
             </ng-template>
         </div>
         <div class="col-4">
-            <button mat-button>
-                <fa-icon [icon]="comment"></fa-icon>
-                <span> Comments</span>
-            </button>
+            <fa-icon [icon]="utensils"></fa-icon>
+            <span> {{ recipe.servings }} servings</span>
         </div>
     </div>
 </div>

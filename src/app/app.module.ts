@@ -45,7 +45,6 @@ import { UserUpdateFormComponent } from './user-update-form/user-update-form.com
 import { DeleteConsentDialogComponent } from './components/delete-consent-dialog/delete-consent-dialog.component';
 import { RecipeCommentsComponent } from './components/recipe-comments/recipe-comments.component';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
-import { AuthRequestDialogComponent } from "./components/auth-request-dialog/auth-request-dialog.component";
 import { CommentsService } from './services/comments.service';
 import { AuthInterceptor } from "./auth-interceptor";
 import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
@@ -78,7 +77,6 @@ import { AuthService } from "./services/auth.service";
     DeleteConsentDialogComponent,
     RecipeCommentsComponent,
     CommentFormComponent,
-    AuthRequestDialogComponent,
     RegisterDialogComponent,
     LoginDialogComponent
   ],
@@ -113,7 +111,6 @@ import { AuthService } from "./services/auth.service";
   ],
   entryComponents: [
     DeleteConsentDialogComponent,
-    AuthRequestDialogComponent,
     RegisterDialogComponent,
     LoginDialogComponent,
   ],

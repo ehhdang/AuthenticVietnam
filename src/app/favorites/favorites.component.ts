@@ -20,12 +20,12 @@ export class FavoritesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.usersService.getFavorites(this.userId)
+    this.usersService.getFavorites()
       .subscribe(recipes => {this.favorites = recipes});
   }
 
   deleteAllFavorites(): void {
-    this.usersService.deleteFavorites(this.userId)
+    this.usersService.deleteFavorites()
       .subscribe(recipes => this.favorites = recipes);
   }
 

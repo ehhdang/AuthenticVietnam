@@ -21,7 +21,7 @@ export class LoginButtonComponent implements OnInit {
   loginWithRedirect(): void {
    this.dialog.open(LoginDialogComponent, {
     width: "500px",
-    height: "400px"
+    height: "450px"
    })
   }
 

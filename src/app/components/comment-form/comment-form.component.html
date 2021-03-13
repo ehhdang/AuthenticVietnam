@@ -1,6 +1,8 @@
 <div *ngIf="user; else disabledForm">
     <div class="authorized-comment">
-        <img [src]="user.picture" alt="user image">
+        <div class="user-picture">
+            <div>{{ user.firstname.charAt(0) }}{{ user.lastname.charAt(0) }}</div>
+        </div>
         <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" color="primary">
             <mat-form-field appearance="outline">
                 <mat-label>Rating</mat-label>

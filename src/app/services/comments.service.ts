@@ -10,30 +10,40 @@ import { catchError } from 'rxjs/operators';
 })
 export class CommentsService {
 
-  private commentUrl = `${env.dev.serverUrl}/comments`;
+  private commentURL = `${env.dev.serverUrl}/recipes/recipe/comments`;
 
   constructor(
     private http: HttpClient
   ) { }
 
-  postComment(comment: Comment): Observable<Comment> {
-    return this.http.post<Comment>(this.commentUrl, comment)
+  getComments(recipeId: String): Observable<Comment[]> {
+    const url = `${this.commentURL}?recipeId=${recipeId}`;
+    return this.http.get<Comment[]>(url)
       .pipe(
-        catchError(this.handleError<Comment>(`postComment ${comment}`))
+        catchError(this.handleError<Comment[]>(`getComments of recipeId = ${recipeId}`))
+      )
+  }
+  postComment(recipeId: String, comment: Comment): Observable<Comment[]> {
+    const url = `${this.commentURL}?recipeId=${recipeId}`;
+    return this.http.post<Comment[]>(url, comment)
+      .pipe(
+        catchError(this.handleError<Comment[]>(`postComment ${comment}`))
       );
   }
 
-  putComment(commentId: String, content: Comment): Observable<Comment> {
-    return this.http.put<Comment>(`${this.commentUrl}/commentId`, content)
+  modifyComment(recipeId: String, commentId: String, comment: Comment): Observable<Comment[]> {
+    const url = `${this.commentURL}?recipeId=${recipeId}&commentId=${commentId}`;
+    return this.http.patch<Comment[]>(url, comment)
       .pipe(
-        catchError(this.handleError<Comment>(`putComment ${commentId} ${content}`))
+        catchError(this.handleError<Comment[]>(`modifyComment ${commentId} ${comment}`))
       );
   }
 
-  deleteComment(commentId: String): Observable<Comment> {
-    return this.http.delete<Comment>(`${this.commentUrl}/commentId`)
+  deleteComment(recipeId: String, commentId: String): Observable<Comment[]> {
+    const url = `${this.commentURL}?recipeId=${recipeId}&commentId=${commentId}`;
+    return this.http.delete<Comment[]>(url)
       .pipe(
-        catchError(this.handleError<Comment>(`deleteComment ${commentId}`))
+        catchError(this.handleError<Comment[]>(`deleteComment ${commentId}`))
       );
   }
 

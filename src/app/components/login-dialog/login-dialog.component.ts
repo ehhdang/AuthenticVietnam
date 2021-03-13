@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from "@angular/forms";
 import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
-import { MatDialogRef } from "@angular/material/dialog";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { RegisterDialogComponent } from "../register-dialog/register-dialog.component";
 
 @Component({
   selector: 'app-login-dialog',
@@ -20,7 +21,8 @@ export class LoginDialogComponent implements OnInit {
     private fb: FormBuilder,
     private auth: AuthService,
     private router: Router,
-    public dialogRef: MatDialogRef<LoginDialogComponent>,
+    private dialogRef: MatDialogRef<LoginDialogComponent>,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -38,5 +40,13 @@ export class LoginDialogComponent implements OnInit {
           this.dialogRef.close();
          }
       })
+  }
+
+  openSignUpDialog(): void {
+    this.dialog.open(RegisterDialogComponent, {
+      width: "500px",
+      height: "640px"
+    });
+    this.dialogRef.close();
   }
 }

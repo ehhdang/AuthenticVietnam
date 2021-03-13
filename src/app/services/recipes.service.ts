@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Recipe } from '../shared/Recipe';
-import { Ingredient } from '../shared/Ingredient';
-import { Direction } from '../shared/Direction';
-import { Comment } from "../shared/Comment";
 import { environment as env } from "../../environments/environment";
 
 import { Observable, of } from 'rxjs';
 import { HttpClient } from "@angular/common/http";
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +19,7 @@ export class RecipesService {
     private http: HttpClient,
   ) { }
 
+  //good
   getRecipes(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(this.recipeURL)
       .pipe(
@@ -29,27 +27,12 @@ export class RecipesService {
       );
   }
 
+  //good
   getRecipe(id: String): Observable<Recipe> {
     const url = `${this.recipeURL}/recipe?recipeId=${id}`;
     return this.http.get<Recipe>(url)
       .pipe(
         catchError(this.handleError<Recipe>(`getRecipe id=${id}`))
-      );
-  }
-
-  getComments(id: String): Observable<Comment[]> {
-    const url = `${this.recipeURL}/recipe/comments?recipeId=${id}`;
-    return this.http.get<Comment[]>(url)
-      .pipe(
-        catchError(this.handleError<Comment[]>(`getComments from recipeId=${id}`, []))
-      );
-  }
-
-  postComment(id: String, commentId: String): Observable<Comment[]> {
-    const url = `${this.recipeURL}/recipe/comments?recipeId=${id}`;
-    return this.http.post<Comment[]>(url, {comment: commentId})
-      .pipe(
-        catchError(this.handleError<Comment[]>(`postComment to recipeId=${id}`))
       );
   }
 
