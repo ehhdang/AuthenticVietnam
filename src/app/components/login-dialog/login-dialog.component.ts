@@ -45,7 +45,7 @@ export class LoginDialogComponent implements OnInit {
   openSignUpDialog(): void {
     this.dialog.open(RegisterDialogComponent, {
       width: "500px",
-      height: "640px"
+      height: "580px"
     });
     this.dialogRef.close();
   }

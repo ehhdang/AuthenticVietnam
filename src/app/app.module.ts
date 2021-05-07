@@ -5,7 +5,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { environment as env } from "../environments/environment";
 import { ReactiveFormsModule } from "@angular/forms";
 
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";

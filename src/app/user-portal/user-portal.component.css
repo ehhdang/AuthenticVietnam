@@ -3,6 +3,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 1em;
+    min-height: 65%;
 }
 .user-profile {
     flex: 0 0 200px;

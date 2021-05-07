@@ -6,18 +6,20 @@
 .brand .brand-name {
     font-weight: 600;
     color: #356859;
-    margin: 0.25em 0;
+    margin: 0.5em 0;
 }
 .brand .headline {
     font-family: "Lekton";
-    margin: 0.25em 0;
+    margin: 0 0 0.5em 0;
     color: #FD5523;
 }
 form {
     margin: 0.5em;
 }
-.name-field mat-form-field{
-    margin: 0 0.25em;
+.name-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .email-password-field {
     display: flex;

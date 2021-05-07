@@ -1,6 +1,11 @@
 .dialog {
     color: #356859;
 }
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 .cancel-button {
     margin: 0 0.5em;
     border: 1px solid #37966F;

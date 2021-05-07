@@ -6,11 +6,11 @@
 .brand .brand-name {
     font-weight: 600;
     color: #356859;
-    margin: 0.25em 0;
+    margin: 0.5em 0;
 }
 .brand .headline {
     font-family: "Lekton";
-    margin: 0.25em 0;
+    margin: 0 0 0.5em 0;
     color: #FD5523;
 }
 form {
@@ -27,9 +27,12 @@ form {
     justify-content: space-evenly;
 }
 .signup-hyperlink {
-    margin: 2em 1em;
     text-decoration: underline;
     color: #356859;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .signup-hyperlink a:hover {
     cursor: pointer;

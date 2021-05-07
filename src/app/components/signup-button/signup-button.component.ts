@@ -20,8 +20,8 @@ export class SignupButtonComponent implements OnInit {
 
   signupWithRedirect(): void {
     this.dialog.open(RegisterDialogComponent, {
-      width: "500px",
-      height: "640px"
+      width: "520px",
+      height: "580px"
     })
   }
 

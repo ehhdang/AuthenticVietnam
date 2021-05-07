@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from "@angular/forms";
 import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
-import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
+// import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
 
 @Component({
   selector: 'app-register-dialog',
@@ -53,12 +53,12 @@ export class RegisterDialogComponent implements OnInit {
       })
   }
 
-  openLogInDialog(): void {
-    this.dialog.open(LoginDialogComponent, {
-      width: "500px",
-      height: "450px"
-    });
-    this.dialogRef.close();
-  }
+  // openLogInDialog(): void {
+  //   this.dialog.open(LoginDialogComponent, {
+  //     width: "500px",
+  //     height: "450px"
+  //   });
+  //   this.dialogRef.close();
+  // }
 
 }
