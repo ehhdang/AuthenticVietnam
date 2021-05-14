@@ -1,14 +1,22 @@
-<div class="container p-3 text-center">
-    <div class='row'>
-        <nav class="nav col-9 align-items-center">
+<nav class="navbar container navbar-expand-lg p-3 text-center">
+    <div class="navbar-brand">
+        <img src="../../assets/images/logo.png" alt="Authentic Vietnam" width="62" height="50">
+    </div>
+    <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-content">
             <li class="nav-item">
                 <a class="nav-link btn" routerLink="/home">Home</a>
             </li>
-        </nav>
-        <app-authentication class="col-3"></app-authentication>
+            <li class="nav-item">
+                <app-authentication></app-authentication>
+            </li>
+        </ul>
     </div>
-    <div class="row brand m-3">
-        <div class='col'>Authentic Vietnam</div>
-    </div>
+</nav>
+<div class="text-center brand mt-2 mb-5">
+    <div>Authentic Vietnam</div>
 </div>
 

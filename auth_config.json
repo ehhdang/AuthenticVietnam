@@ -1,6 +1,4 @@
 {
-    "domain": "dev-gmqoz3lk.us.auth0.com",
-    "clientId": "Q4iSoeimXNuRA9mQAG6DKxPDaoS5w15D",
-    "audience": "https://express.jasmine.com",
-    "serverUrl": "https://authenticvietnam-e6ee0.uc.r.appspot.com/"
+    "devServerUrl": "http://localhost:8080",
+    "prodServerUrl": "https://authenticvietnam-e6ee0.uc.r.appspot.com/"
 }

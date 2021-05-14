@@ -1,4 +1,4 @@
-<div class="nav justify-content-end align-items-center">
+<div class="d-flex justify-content-end align-items-center auth">
     <app-login-button *ngIf="authService.isLoggedOut()"></app-login-button>
     <app-signup-button *ngIf="authService.isLoggedOut()"></app-signup-button>
     <app-user-icon-button *ngIf="authService.isLoggedIn()"></app-user-icon-button>
